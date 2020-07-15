@@ -1,0 +1,36 @@
+// For full API documentation, including code examples, visit https://wix.to/94BuAAs
+
+import {getCryptoCurrencyInfo} from 'backend/serviceModule';
+import {fetch} from 'wix-fetch';
+
+
+		
+        
+
+
+$w.onReady(function () {
+	//TODO: write your page related code here...
+	
+	
+	getCryptoCurrencyInfo()
+		.then(currencyInfo => {
+			const data = currencyInfo
+			console.log(data.with[1].content.yearlyWatts);
+			console.log(data.with[2].content.monthlyWatts);
+			console.log(data.with[3].content.currentDailyCarbonSaved);
+			console.log(data.with[4].content.currentDailyWatts);
+
+
+			
+
+
+
+
+		}
+		
+		
+		
+		)
+	
+
+});
