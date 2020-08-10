@@ -12,56 +12,66 @@ from HourSourceCodeRecieve import recieveSourceFunction, filename
 import HourSourceCodeRecieve
 count = 0
 
-#running the source code ripper
-while count != 9999:
-    today1 = datetime.datetime.now().time()
-    
-    
+while count != 99999
+    try:
+        #running the source code ripper
+        while count != 99999:
+            today1 = datetime.datetime.now().time()
+            
+            
 
-    HourSourceCodeRecieve.recieveSourceFunction()
-    #opening txt file, setting up variable lines, when printing (lines[548]) we get line 549 output
-    sourceCodeVariableRip = open(filename, 'r+')
-    lines = sourceCodeVariableRip.readlines()
+            HourSourceCodeRecieve.recieveSourceFunction()
+            #opening txt file, setting up variable lines, when printing (lines[548]) we get line 549 output
+            sourceCodeVariableRip = open(filename, 'r+')
+            lines = sourceCodeVariableRip.readlines()
 
-    currentDailyWatts = lines[274].strip().rstrip()
-    print(f"{currentDailyWatts} The Watts Gotten Today ie Daily")
-    currentDailyCarbonSaved = lines[1710].strip().rstrip()
-    print(f"{currentDailyCarbonSaved} The Carbon Saved Today ie Daily")
-    monthlyWatts = lines[279].strip().rstrip()
-    print(f"{monthlyWatts} The Watts Gotten this Month ie Monthly")
-    yearlyWatts = lines[284].strip().rstrip()
-    print(f"{yearlyWatts} The Watts gotten this Year ie Yearly")
+            currentDailyWatts = lines[274].strip().rstrip()
+            print(f"{currentDailyWatts} The Watts Gotten Today ie Daily")
+            currentDailyCarbonSaved = lines[1710].strip().rstrip()
+            print(f"{currentDailyCarbonSaved} The Carbon Saved Today ie Daily")
+            monthlyWatts = lines[279].strip().rstrip()
+            print(f"{monthlyWatts} The Watts Gotten this Month ie Monthly")
+            yearlyWatts = lines[284].strip().rstrip()
+            print(f"{yearlyWatts} The Watts gotten this Year ie Yearly")
 
-    intmonwatts = int(float(monthlyWatts))
-    monthlyCarbonSaved = intmonwatts * 0.42 + 0.001 - 0.0009999999999
+            intmonwatts = int(float(monthlyWatts))
+            monthlyCarbonSaved = intmonwatts * 0.42 + 0.001 - 0.0009999999999
 
-    intyrwatts = int(float(yearlyWatts))
-    yearlyCarbonSaved = intyrwatts * 0.42
+            intyrwatts = int(float(yearlyWatts))
+            yearlyCarbonSaved = intyrwatts * 0.42
 
-    print(f"{monthlyCarbonSaved} Carbon Saved this Month")
-    print(f"{yearlyCarbonSaved} Carbon Saved This Year")
+            print(f"{monthlyCarbonSaved} Carbon Saved this Month")
+            print(f"{yearlyCarbonSaved} Carbon Saved This Year")
 
-    dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
-    dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
-    dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
-    dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
-    dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
+            dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
+            dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
+            dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
+            dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
+            dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
 
-    collection = (dweepy.get_dweets_for('shyam__5'))
+            """ In order to save on API requests from dweet
+            collection = (dweepy.get_dweets_for('shyam__5'))
 
-    print(collection[1]['content']['yearlyCarbonSaved'])
-    print(('yearly carbon').title())
-    print(collection[2]['content']['monthlyWatts'])
-    print(('monthly watts').title())
-    print(collection[3]['content']['currentDailyCarbonSaved'])
-    print(('daily carbon saved').title())
-    print(collection[4]['content']['currentDailyWatts'])
-    print(('daily watts').title())
-    print(collection[0]['content']['monthlyCarbonSaved'])
-    print(('month carbon saved').title())
-    print(today1)
-    print('sleeping')
-    time.sleep(900)
-    print(datetime.datetime.now().time())
-    print('done sleeping')
-    count += 1
+            print(collection[1]['content']['yearlyCarbonSaved'])
+            print(('yearly carbon').title())
+            print(collection[2]['content']['monthlyWatts'])
+            print(('monthly watts').title())
+            print(collection[3]['content']['currentDailyCarbonSaved'])
+            print(('daily carbon saved').title())
+            print(collection[4]['content']['currentDailyWatts'])
+            print(('daily watts').title())
+            print(collection[0]['content']['monthlyCarbonSaved'])
+            print(('month carbon saved').title())
+            """
+            print(today1)
+            print('sleeping')
+            time.sleep(900)
+            print(datetime.datetime.now().time())
+            print('done sleeping')
+            count += 1
+    except ValueError:
+        print("Value Error, Waiting unti' fixed")
+        print(datetime.datetime.now().time())
+        time.sleep(900)
+
+            
