@@ -47,8 +47,10 @@ while count != 9999:
         dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
         dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
         dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
-"""
-        collection = (dweepy.get_dweets_for('shyam__5'))
+
+        
+
+        """collection = (dweepy.get_dweets_for('shyam__5'))
 
         print(collection[1]['content']['yearlyCarbonSaved'])
         print(('yearly carbon').title())
@@ -58,8 +60,8 @@ while count != 9999:
         print(('daily carbon saved').title())
         print(collection[4]['content']['currentDailyWatts'])
         print(('daily watts').title())
-        print(collection[0]['content']['monthlyCarbonSaved'])
-        """
+        print(collection[0]['content']['monthlyCarbonSaved'])"""
+        
         print(('month carbon saved').title())
         print(today1)
         print('sleeping')
