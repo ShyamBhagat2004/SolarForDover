@@ -68,7 +68,6 @@ while count != 9999:
         time.sleep(900)
         print(datetime.datetime.now().time())
         print('done sleeping')
-        count += 1
     except ValueError:
         print("Value Error")
         time.sleep(900)
