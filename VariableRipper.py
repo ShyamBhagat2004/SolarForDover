@@ -71,5 +71,6 @@ while count != 9999:
         print("Value Error")
         time.sleep(900)
         print(datetime.datetime.now().time())
-
-
+    except dweepy.api.DweepyError:
+        print("dweep error")
+        time.sleep(900)
