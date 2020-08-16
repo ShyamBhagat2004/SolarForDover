@@ -65,13 +65,13 @@ while count != 9999:
         print(('month carbon saved').title())
         print(today1)
         print('sleeping')
-        time.sleep(900)
+        time.sleep(300)
         print(datetime.datetime.now().time())
         print('done sleeping')
     except ValueError:
         print("Value Error")
-        time.sleep(900)
+        time.sleep(300)
         print(datetime.datetime.now().time())
     except dweepy.api.DweepyError:
         print("dweep error")
-        time.sleep(900)
+        time.sleep(300)
