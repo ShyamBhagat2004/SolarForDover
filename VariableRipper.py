@@ -41,13 +41,22 @@ while count != 9999:
 
         print(f"{monthlyCarbonSaved} Carbon Saved this Month")
         print(f"{yearlyCarbonSaved} Carbon Saved This Year")
+        time.sleep(100)
 
         dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
-        dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
-        dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
-        dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
-        dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
+        time.sleep(100)
 
+        
+
+        dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
+        time.sleep(100)
+
+        dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
+        time.sleep(100)
+        dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
+        time.sleep(100)
+        dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
+        time.sleep(100)
         
 
         """collection = (dweepy.get_dweets_for('shyam__5'))
@@ -68,6 +77,10 @@ while count != 9999:
         time.sleep(300)
         print(datetime.datetime.now().time())
         print('done sleeping')
+        now = datetime.datetime.now()
+        dweepy.dweet_for('shyam__6', {'Last Update': (now.strftime("%Y-%m-%d %H:%M:%S"))})
+
+
     except ValueError:
         print("Value Error")
         time.sleep(300)
