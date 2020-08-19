@@ -6,6 +6,7 @@ import json
 import pprint
 from datetime import date
 import datetime
+import pytz
 import time
  
 from HourSourceCodeRecieve import recieveSourceFunction, filename
@@ -15,6 +16,9 @@ count = 0
 #running the source code ripper
 while count != 9999:
     try:
+        singapore = pytz.timezone.('Asia/Singapore')
+        fmt = '%Y-%m-%d %H:%M:%S %Z%z'
+        sinformat = sin_dt.strftime(fmt)
         today1 = datetime.datetime.now().time()
         
         
@@ -78,13 +82,14 @@ while count != 9999:
         print(datetime.datetime.now().time())
         print('done sleeping')
         now = datetime.datetime.now()
-        dweepy.dweet_for('shyam__6', {'Last Update': (now.strftime("%Y-%m-%d %H:%M:%S"))})
+        dweepy.dweet_for('shyam__6', {'Last Update': sinformat}
 
 
     except ValueError:
         print("Value Error")
         time.sleep(300)
-        print(datetime.datetime.now().time())
+        print(sinformat)
     except dweepy.api.DweepyError:
         print("dweep error")
         time.sleep(300)
+        print(sinformat)
