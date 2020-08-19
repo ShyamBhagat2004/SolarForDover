@@ -45,11 +45,18 @@ while count != 9999:
         print(f"{monthlyCarbonSaved} Carbon Saved this Month")
         print(f"{yearlyCarbonSaved} Carbon Saved This Year")
 
+
+        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
+        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
+        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
+        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
+        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
+        time.sleep(90)
 
         
 
@@ -67,7 +74,7 @@ while count != 9999:
         print(('month carbon saved').title())
         print(today1)
         print('sleeping')
-        time.sleep(300)
+        time.sleep(100)
         print(datetime.datetime.now().time())
         print('done sleeping')
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
