@@ -6,9 +6,9 @@ import json
 import pprint
 from datetime import date
 import datetime
-import pytz
 import time
- 
+import pytz
+from pytz import timezone
 from HourSourceCodeRecieve import recieveSourceFunction, filename
 import HourSourceCodeRecieve
 count = 0
@@ -16,9 +16,8 @@ count = 0
 #running the source code ripper
 while count != 9999:
     try:
-        singapore = pytz.timezone('Asia/Singapore')
-        fmt = '%Y-%m-%d %H:%M:%S %Z%z'
-        sinformat = sin_dt.strftime(fmt)
+        timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
+
         today1 = datetime.datetime.now().time()
         
         
@@ -45,26 +44,16 @@ while count != 9999:
 
         print(f"{monthlyCarbonSaved} Carbon Saved this Month")
         print(f"{yearlyCarbonSaved} Carbon Saved This Year")
-        time.sleep(100)
 
         dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
-        time.sleep(100)
-
-        
-
         dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
-        time.sleep(100)
-
         dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
-        time.sleep(100)
         dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
-        time.sleep(100)
         dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
-        time.sleep(100)
+
         
 
         """collection = (dweepy.get_dweets_for('shyam__5'))
-
         print(collection[1]['content']['yearlyCarbonSaved'])
         print(('yearly carbon').title())
         print(collection[2]['content']['monthlyWatts'])
@@ -81,15 +70,14 @@ while count != 9999:
         time.sleep(300)
         print(datetime.datetime.now().time())
         print('done sleeping')
-        now = datetime.datetime.now()
-        dweepy.dweet_for('shyam__6', {'Last Update': sinformat}
-
-
+        dweepy.dweet_for('shyam__6', {'Last Good Update': timeformat})
     except ValueError:
         print("Value Error")
         time.sleep(300)
-        print(sinformat)
+        print(datetime.datetime.now().time())
+        dweepy.dweet_for('shyam__6', {'Last Value Error': timeformat})
+
     except dweepy.api.DweepyError:
         print("dweep error")
         time.sleep(300)
-        print(sinformat)
+        dweepy.dweet_for('shyam__6', {'Last Dweep Error': timeformat})
