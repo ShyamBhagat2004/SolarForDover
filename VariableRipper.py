@@ -16,7 +16,7 @@ count = 0
 #running the source code ripper
 while count != 9999:
     try:
-        singapore = pytz.timezone.('Asia/Singapore')
+        singapore = pytz.timezone('Asia/Singapore')
         fmt = '%Y-%m-%d %H:%M:%S %Z%z'
         sinformat = sin_dt.strftime(fmt)
         today1 = datetime.datetime.now().time()
