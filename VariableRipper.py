@@ -70,14 +70,14 @@ while count != 9999:
         time.sleep(300)
         print(datetime.datetime.now().time())
         print('done sleeping')
-        dweepy.dweet_for('shyam__6', {'Last Good Update': timeformat})
+        dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
     except ValueError:
         print("Value Error")
         time.sleep(300)
         print(datetime.datetime.now().time())
-        dweepy.dweet_for('shyam__6', {'Last Value Error': timeformat})
+        dweepy.dweet_for('shyam__6', {'Last Value Error': str(timeformat)})
 
     except dweepy.api.DweepyError:
         print("dweep error")
         time.sleep(300)
-        dweepy.dweet_for('shyam__6', {'Last Dweep Error': timeformat})
+        dweepy.dweet_for('shyam__6', {'Last Dweep Error': str(timeformat)})
