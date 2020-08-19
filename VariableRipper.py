@@ -70,14 +70,20 @@ while count != 9999:
         time.sleep(300)
         print(datetime.datetime.now().time())
         print('done sleeping')
+        timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
+
         dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
     except ValueError:
         print("Value Error")
         time.sleep(300)
         print(datetime.datetime.now().time())
+        timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
+
         dweepy.dweet_for('shyam__6', {'Last Value Error': str(timeformat)})
 
     except dweepy.api.DweepyError:
         print("dweep error")
         time.sleep(300)
+        timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
+
         dweepy.dweet_for('shyam__6', {'Last Dweep Error': str(timeformat)})
