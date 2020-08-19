@@ -1,5 +1,5 @@
-How to ping to amazon
+How to ping amazon
 
-ssh -i "shyam.pem" ubuntu@ec2-54-169-247-110.ap-southeast-1.compute.amazonaws.com
 
-ssh -i "C:\Users\weare\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs\home\shyam\shyam.pem" ubuntu@ec2-54-169-247-110.ap-southeast-1.compute.amazonaws.com
+cd ./.ssh/SolarForDover1
+sudo ssh -i shyam.pem ubuntu@ec2-54-169-247-110.ap-southeast-1.compute.amazonaws.com
