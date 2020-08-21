@@ -11,7 +11,7 @@ import pytz
 from pytz import timezone
 from HourSourceCodeRecieve import recieveSourceFunction, filename
 import HourSourceCodeRecieve
-from reset_all import reset_all_readings, reset_checker
+from reset_all import reset_all_readings
 count = 0
 resettoday = 0
 #running the source code ripper
