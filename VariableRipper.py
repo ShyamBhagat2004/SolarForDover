@@ -47,7 +47,11 @@ while count != 9999:
         print(f"{yearlyCarbonSaved} Carbon Saved This Year")
 
 
+
+
         time.sleep(90)
+        
+        dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
         dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
         time.sleep(90)
         dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
@@ -82,7 +86,6 @@ while count != 9999:
         print('done sleeping')
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
 
-        reset_checker()
         reset_all_readings()
 
 

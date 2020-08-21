@@ -20,8 +20,7 @@ def reset_all_readings():
     zero = 0
     timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
     timeformatformat = str(timeformat.strftime("%H"))
-    if resettoday == 0:
-        if timeformatformat == "23":
+    if timeformatformat == "23":
             time.sleep(90)
             dweepy.dweet_for('shyam__5', {'currentDailyWatts': zero})
             time.sleep(90)
@@ -34,10 +33,5 @@ def reset_all_readings():
             dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': zero})
             time.sleep(90)
             resettoday = 1
-def reset_checker():
-    timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
-    timeformatformat = str(timeformat.strftime("%H"))
-    if timeformat == "03":
-        resettoday = 0
 
 
