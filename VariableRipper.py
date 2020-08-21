@@ -11,6 +11,7 @@ import pytz
 from pytz import timezone
 from HourSourceCodeRecieve import recieveSourceFunction, filename
 import HourSourceCodeRecieve
+from reset_all import reset_all_readings, reset_checker
 count = 0
 
 #running the source code ripper
@@ -60,6 +61,8 @@ while count != 9999:
 
         
 
+        
+
         """collection = (dweepy.get_dweets_for('shyam__5'))
         print(collection[1]['content']['yearlyCarbonSaved'])
         print(('yearly carbon').title())
@@ -78,6 +81,15 @@ while count != 9999:
         print(datetime.datetime.now().time())
         print('done sleeping')
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
+
+        reset_checker()
+        reset_all_readings()
+
+
+        
+
+
+
 
         dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
     except ValueError:
