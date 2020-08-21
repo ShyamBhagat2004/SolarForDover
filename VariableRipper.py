@@ -13,7 +13,7 @@ from HourSourceCodeRecieve import recieveSourceFunction, filename
 import HourSourceCodeRecieve
 from reset_all import reset_all_readings, reset_checker
 count = 0
-
+resettoday = 0
 #running the source code ripper
 while count != 9999:
     try:
