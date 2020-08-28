@@ -86,7 +86,7 @@ while count != 9999:
         print('done sleeping')
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
 
-        reset_all_readings()
+ 
 
 
         
@@ -101,11 +101,9 @@ while count != 9999:
         print(datetime.datetime.now().time())
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
 
-        dweepy.dweet_for('shyam__6', {'Last Value Error': str(timeformat)})
 
     except dweepy.api.DweepyError:
         print("dweep error")
         time.sleep(300)
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
 
-        dweepy.dweet_for('shyam__6', {'Last Dweep Error': str(timeformat)})
