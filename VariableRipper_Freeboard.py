@@ -12,6 +12,7 @@ from pytz import timezone
 from HourSourceCodeRecieve import recieveSourceFunction, filename
 import HourSourceCodeRecieve
 from reset_all import reset_all_readings
+import math
 count = 0
 resettoday = 0
 #running the source code ripper
@@ -28,7 +29,7 @@ while count != 9999:
         sourceCodeVariableRip = open(filename, 'r+')
         lines = sourceCodeVariableRip.readlines()
 
-        currentDailyWatts = lines[548].strip().rstrip()
+        currentDailyWatts = lines[548].strip().rstrip().trunc()
         print(f"{currentDailyWatts} The Watts Gotten Today ie Daily")
         currentDailyCarbonSaved = lines[3420].strip().rstrip()
         print(f"{currentDailyCarbonSaved} The Carbon Saved Today ie Daily")
@@ -51,10 +52,19 @@ while count != 9999:
 
         
         dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
+        time.sleep(5)
         dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
+        time.sleep(5)
+
         dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
+        time.sleep(5)
+
         dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
+        time.sleep(5)
+
         dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
+        time.sleep(5)
+
         dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
 
         
