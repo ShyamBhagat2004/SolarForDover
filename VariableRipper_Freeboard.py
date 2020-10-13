@@ -23,7 +23,7 @@ while count != 9999:
         
         
 
-        HourSourceCodeRecieve.recieveSourceFunction()
+        HourSourceCodeRecieve.recieveSourceFunction()   
         #opening txt file, setting up variable lines, when printing (lines[548]) we get line 549 output
         sourceCodeVariableRip = open(filename, 'r+')
         lines = sourceCodeVariableRip.readlines()
@@ -38,7 +38,7 @@ while count != 9999:
         print(f"{yearlyWatts} The Watts gotten this Year ie Yearly")
 
         intmonwatts = int(float(monthlyWatts))
-        monthlyCarbonSaved = intmonwatts * 0.42 + 0.001 - 0.0009999999999
+        monthlyCarbonSaved = intmonwatts * 0.42 + 0.001
 
         intyrwatts = int(float(yearlyWatts))
         yearlyCarbonSaved = intyrwatts * 0.42
@@ -49,19 +49,13 @@ while count != 9999:
 
 
 
-        time.sleep(90)
         
         dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
         dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
-        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
-        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
-        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
-        time.sleep(90)
         dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
-        time.sleep(90)
 
         
 
@@ -81,10 +75,10 @@ while count != 9999:
         print(('month carbon saved').title())
         print(today1)
         print('sleeping')
-        time.sleep(100)
         print(datetime.datetime.now().time())
         print('done sleeping')
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
+        time.sleep(300)
 
  
 
@@ -97,13 +91,11 @@ while count != 9999:
         dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
     except ValueError:
         print("Value Error")
-        time.sleep(300)
         print(datetime.datetime.now().time())
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
 
 
     except dweepy.api.DweepyError:
         print("dweep error")
-        time.sleep(300)
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
 
