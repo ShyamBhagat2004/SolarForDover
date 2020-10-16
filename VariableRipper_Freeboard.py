@@ -29,7 +29,7 @@ while count != 9999:
         sourceCodeVariableRip = open(filename, 'r+')
         lines = sourceCodeVariableRip.readlines()
 
-        currentDailyWatts = lines[548].strip().rstrip().trunc()
+        currentDailyWatts = (lines[548].strip().rstrip())
         print(f"{currentDailyWatts} The Watts Gotten Today ie Daily")
         currentDailyCarbonSaved = lines[3420].strip().rstrip()
         print(f"{currentDailyCarbonSaved} The Carbon Saved Today ie Daily")
@@ -39,7 +39,7 @@ while count != 9999:
         print(f"{yearlyWatts} The Watts gotten this Year ie Yearly")
 
         intmonwatts = int(float(monthlyWatts))
-        monthlyCarbonSaved = intmonwatts * 0.42 + 0.001
+        monthlyCarbonSaved = intmonwatts * 0.42 + 0.001 
 
         intyrwatts = int(float(yearlyWatts))
         yearlyCarbonSaved = intyrwatts * 0.42
