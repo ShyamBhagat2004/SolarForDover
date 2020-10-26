@@ -103,6 +103,13 @@ while count != 9999:
         print("Value Error")
         print(datetime.datetime.now().time())
         timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
+        dweepy.dweet_for('shyam__5', {'currentDailyWatts': '0'})
+        time.sleep(5)
+        dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': '0'})
+        time.sleep(5)
+    
+
+
 
 
     except dweepy.api.DweepyError:
