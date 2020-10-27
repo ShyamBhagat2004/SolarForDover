@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 import math
+import dweepy
 
 Tutorial = "https://www.dataquest.io/blog/web-scraping-tutorial-python/"
 VirtualEnvironment = "https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/"
@@ -23,13 +24,17 @@ def get_current_pv_value():
     value_total_current_int = value_total_current_int / 1000
     finalCurrentPower = math.trunc(value_total_current_int)
     get_current_pv_value.final = finalCurrentPower
-    
-    
+def get_current_pv_value_and_dweet():
+    import dweepy
+    pv_current_junior = soup.find("span", attrs = {"class" : "mainValueAmount"})
+    pv_current_pool = soupPool.find("span", attrs = {"class" : "mainValueAmount"})
+    value_junior_current_int = int(pv_current_junior['data-value'])
+    value_pool_current_int = int(pv_current_pool['data-value'])
+    value_total_current_int = value_junior_current_int + value_pool_current_int
+    value_total_current_int = value_total_current_int / 1000
+    finalCurrentPower = math.trunc(value_total_current_int)
+    get_current_pv_value.final = finalCurrentPower
+    dweepy.dweet_for('shyam__7', {pv_current_pool['data-timestamp'] : finalCurrentPower})
 
-def get_time_of_pv_reading():
-    pv_current_junior = soup.find("div", attrs = {"title" : "Tuesday, October 27 2020, 2:30:00 PM"})
-    pv_current_pool = soupPool.find("div", attrs = {"class" : "widgetSubHead"})
-    print(pv_current_junior)
 
-get_time_of_pv_reading()
     
