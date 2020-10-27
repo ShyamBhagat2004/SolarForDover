@@ -26,4 +26,10 @@ def get_current_pv_value():
     
     
 
-get_current_pv_value()
+def get_time_of_pv_reading():
+    pv_current_junior = soup.find("div", attrs = {"title" : "Tuesday, October 27 2020, 2:30:00 PM"})
+    pv_current_pool = soupPool.find("div", attrs = {"class" : "widgetSubHead"})
+    print(pv_current_junior)
+
+get_time_of_pv_reading()
+    
