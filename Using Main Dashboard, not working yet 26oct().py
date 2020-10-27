@@ -8,6 +8,10 @@ page = requests.get("https://www.sunnyportal.com/Templates/PublicPage.aspx?page=
 soup = BeautifulSoup(page.content, 'html.parser')
 #print(soup.prettify())
 
-print([type(item) for item in list(soup.children)])
-html = list(soup.children)[8]
-print(list(html.children))
+#print([type(item) for item in list(soup.children)])
+html = list(soup.children)[8] 
+#print(html)
+body = list(html.children)[4]
+print(body)
+#  = list(body.children)[2]
+#print(p)
