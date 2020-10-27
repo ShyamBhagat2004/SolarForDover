@@ -12,7 +12,9 @@ print(nig.get_text())
 def get_current_pv_value():
     
     pv_current = soup.find("span", attrs = {"class" : "mainValueAmount"})
-    print(pv_current)
+    value = int(pv_current['data-value'])
+    print(value)
+    print(value + 1)
     
 
 get_current_pv_value()
