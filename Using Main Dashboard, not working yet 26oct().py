@@ -6,7 +6,8 @@ VirtualEnvironment = "https://packaging.python.org/guides/installing-using-pip-a
 
 page = requests.get("https://www.sunnyportal.com/Templates/PublicPage.aspx?page=1169a2ff-8f51-4ea9-ba72-316009593c62")
 soup = BeautifulSoup(page.content, 'html.parser')
-print(soup.find_all(id="ctl00_ContentPlaceHolder1_PublicPagePlaceholder1_PageUserControl_ctl00_PublicPageLoadFixPage_energyYieldWidget_energyYieldValue"))
+nig = (soup.find(id="ctl00_ContentPlaceHolder1_PublicPagePlaceholder1_PageUserControl_ctl00_PublicPageLoadFixPage_energyYieldWidget_energyYieldValue"))
+print(nig.get_text())
 
 
 
