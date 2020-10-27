@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+import datetime
 Tutorial = "https://www.dataquest.io/blog/web-scraping-tutorial-python/"
 VirtualEnvironment = "https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/"
 
@@ -9,16 +9,10 @@ soup = BeautifulSoup(page.content, 'html.parser')
 nig = (soup.find(id="ctl00_ContentPlaceHolder1_PublicPagePlaceholder1_PageUserControl_ctl00_PublicPageLoadFixPage_energyYieldWidget_energyYieldValue"))
 print(nig.get_text())
 
+def get_current_pv_value():
+    
+    pv_current = soup.find("span", attrs = {"class" : "mainValueAmount"})
+    print(pv_current)
+    
 
-
-"""
-#print(soup.prettify())
-
-#print([type(item) for item in list(soup.children)])
-html = list(soup.children)[8] 
-#print(html)
-body = list(html.children)[4]
-print(body)
-#  = list(body.children)[2]
-#print(p)
-"""
+get_current_pv_value()
