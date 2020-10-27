@@ -20,5 +20,27 @@ def recieveSourceFunction():
 
     currentHourWrite = open(filename, 'w+')
     currentHourWrite.write(beautifulSourceCode)
+def rip_lines():
+        sourceCodeVariableRip = open(filename, 'r+')
+        lines = sourceCodeVariableRip.readlines()
+
+        currentDailyWatts = (lines[548].strip().rstrip())
+        print(f"{currentDailyWatts} The Watts Gotten Today ie Daily")
+        currentDailyCarbonSaved = lines[3420].strip().rstrip()
+        print(f"{currentDailyCarbonSaved} The Carbon Saved Today ie Daily")
+        monthlyWatts = lines[558].strip().rstrip()
+        print(f"{monthlyWatts} The Watts Gotten this Month ie Monthly")
+        yearlyWatts = lines[568].strip().rstrip()
+        print(f"{yearlyWatts} The Watts gotten this Year ie Yearly")
+
+        intmonwatts = int(float(monthlyWatts))
+        monthlyCarbonSaved = intmonwatts * 0.42 + 0.001 
+
+        intyrwatts = int(float(yearlyWatts))
+        yearlyCarbonSaved = intyrwatts * 0.42
+
+        print(f"{monthlyCarbonSaved} Carbon Saved this Month")
+        print(f"{yearlyCarbonSaved} Carbon Saved This Year")
     
+
     
