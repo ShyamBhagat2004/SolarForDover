@@ -46,5 +46,9 @@ def get_current_pv_value_and_dweet():
     else:
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})
 
-
-    
+def pv_resetter_0():
+    import dweepy
+    import datetime
+    now = datetime.datetime.now()
+    if now.hour == 23:
+        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 0})

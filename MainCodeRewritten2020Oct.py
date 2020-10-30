@@ -14,6 +14,7 @@ count = 0
 
 
 while count != 1:
+    dashboard_scraper.pv_resetter_0()
     HourSourceCodeRecieve.recieveSourceFunction()
     HourSourceCodeRecieve.rip_lines_and_dweet()
     #dashboard_scraper.get_current_pv_value()
