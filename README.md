@@ -1,3 +1,28 @@
-index for files in source code
+# Solar For Dover Live Display
+Written in Python, this repo aims to run the backend of scraping sunnyportal.com and recieving readings by analysing HTML Source Code, and upload that to an online location. (Currently using Dweet.io and a JSON Format)
 
-Line 448 is Total KWh for the Day
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+
+```bash
+pip install foobar
+```
+
+## Usage
+
+```python
+import foobar
+
+foobar.pluralize('word') # returns 'words'
+foobar.pluralize('goose') # returns 'geese'
+foobar.singularize('phenomena') # returns 'phenomenon'
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
