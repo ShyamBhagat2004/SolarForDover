@@ -11,6 +11,7 @@
 **/.vscode
 **/*.*proj.user
 **/*.dbmdl
+**/*.jfm
 **/azds.yaml
 **/bin
 **/charts
