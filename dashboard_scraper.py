@@ -52,4 +52,3 @@ def pv_resetter_0():
     now = datetime.datetime.now()
     if now.hour == 23:
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 0})
-print("hello")
