@@ -24,3 +24,6 @@ To run docker:
 
 sudo docker run wearethedropperz/dover-dashboard:octoberbuild
 Sudo is very important.
+
+sudo docker update --restart always a5a6ff4345a8 (random hex) will hopefully make it so that the container will run again even after any error
+https://phoenixnap.com/kb/update-docker-image-container
