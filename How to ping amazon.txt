@@ -19,3 +19,8 @@ bg
 disown
 
 ps -ef | grep python
+
+To run docker:
+
+sudo docker run wearethedropperz/dover-dashboard:octoberbuild
+Sudo is very important.
