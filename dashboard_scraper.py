@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import datetime
 import math
 import dweepy
+import pytz
 
 Tutorial = "https://www.dataquest.io/blog/web-scraping-tutorial-python/"
 VirtualEnvironment = "https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/"
@@ -48,7 +49,9 @@ def get_current_pv_value_and_dweet():
 
 def pv_resetter_0():
     import dweepy
+    import pytz
     import datetime
-    now = datetime.datetime.now()
+    now = datetime.datetime.now(pytz.timezone('Asia/Singapore'))
     if now.hour == 23:
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 0})
+
