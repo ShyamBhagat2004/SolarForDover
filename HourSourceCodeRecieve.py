@@ -34,7 +34,7 @@ def rip_lines_and_dweet():
 
             currentDailyWatts = (lines[274].strip().rstrip())
             print(f"{currentDailyWatts} The Watts Gotten Today ie Daily")
-            currentDailyCarbonSaved = lines[1710].strip().rstrip()
+            currentDailyCarbonSaved = lines[1716].strip().rstrip()
             print(f"{currentDailyCarbonSaved} The Carbon Saved Today ie Daily")
             monthlyWatts = lines[279].strip().rstrip()
             print(f"{monthlyWatts} The Watts Gotten this Month ie Monthly")
