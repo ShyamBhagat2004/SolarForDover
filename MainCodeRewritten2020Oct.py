@@ -23,5 +23,5 @@ try:
 
         time.sleep(300)
 except:
-    continue
+    pass
         
