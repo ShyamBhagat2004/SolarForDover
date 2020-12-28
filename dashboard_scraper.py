@@ -47,7 +47,7 @@ def get_current_pv_value_and_dweet():
         dweepy.dweet_for('shyam__7', {'finalcurrentpower' : finalCurrentPower*1000})
     else:
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})
-    if finalCurrentPower > 5:
+    if finalCurrentPower < 5:
         time.sleep(5)
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 5})
 

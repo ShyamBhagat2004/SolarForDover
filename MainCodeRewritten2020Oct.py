@@ -11,7 +11,9 @@ import HourSourceCodeRecieve
 import dashboard_scraper
 import time
 count = 0
-
+"""
+docker guide = https://docs.google.com/document/d/1R9swZekHIR2PnytGjqD7clZdm3pO2CtC3lxJzSTKnCQ/edit
+"""
 try:
 
     while count != 1:
@@ -23,5 +25,5 @@ try:
 
         time.sleep(300)
 except:
-    continue
+    pass
         
