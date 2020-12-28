@@ -27,6 +27,7 @@ def get_current_pv_value():
     get_current_pv_value.final = finalCurrentPower
 def get_current_pv_value_and_dweet():
     import dweepy
+    import time
     page = requests.get("https://bit.ly/37Gvm9v")
     soup = BeautifulSoup(page.content, 'html.parser')
     pagePoolPanels = requests.get("https://www.sunnyportal.com/Templates/PublicPage.aspx?page=e30bffa6-04b5-45e7-b9d5-bdd17fc918cd")
@@ -46,6 +47,9 @@ def get_current_pv_value_and_dweet():
         dweepy.dweet_for('shyam__7', {'finalcurrentpower' : finalCurrentPower*1000})
     else:
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})
+    if finalCurrentPower > 5:
+        time.sleep(5)
+        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 5})
 
 def pv_resetter_0():
     import dweepy
