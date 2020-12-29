@@ -43,13 +43,17 @@ def get_current_pv_value_and_dweet():
     finalCurrentPower = math.trunc(value_total_current_int)
     get_current_pv_value.final = finalCurrentPower
     print(f"The current power combined is {finalCurrentPower}")
+    """
     if value_total_current_int * 1000 < 2000:
         dweepy.dweet_for('shyam__7', {'finalcurrentpower' : finalCurrentPower*1000})
     else:
-        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})
+        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})"""
     if finalCurrentPower < 15:
         time.sleep(5)
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 15})
+    else:
+        time.sleep(5)
+        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})
 
 def pv_resetter_0():
     import dweepy
