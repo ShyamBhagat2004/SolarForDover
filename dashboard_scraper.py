@@ -4,6 +4,9 @@ import datetime
 import math
 import dweepy
 import pytz
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+from pprint import pprint
 
 Tutorial = "https://www.dataquest.io/blog/web-scraping-tutorial-python/"
 VirtualEnvironment = "https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/"
@@ -26,6 +29,19 @@ def get_current_pv_value():
     finalCurrentPower = math.trunc(value_total_current_int)
     get_current_pv_value.final = finalCurrentPower
 def get_current_pv_value_and_dweet():
+    import gspread
+    from oauth2client.service_account import ServiceAccountCredentials
+    from pprint import pprint
+    scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
+
+    creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+
+    client = gspread.authorize(creds)
+
+    sheet = client.open("SOLAR JSON SCRIPT").sheet1  # Open the spreadhseet
+
+    data = sheet.get_all_records()  # Get a list of all records
+
     import dweepy
     import time
     page = requests.get("https://bit.ly/37Gvm9v")
