@@ -29,6 +29,7 @@ def get_current_pv_value():
     finalCurrentPower = math.trunc(value_total_current_int)
     get_current_pv_value.final = finalCurrentPower
 def get_current_pv_value_and_dweet():
+    import random
     import gspread
     from oauth2client.service_account import ServiceAccountCredentials
     from pprint import pprint
@@ -64,14 +65,15 @@ def get_current_pv_value_and_dweet():
         dweepy.dweet_for('shyam__7', {'finalcurrentpower' : finalCurrentPower*1000})
     else:
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})"""
+    randomFinalCurrentPower = finalCurrentPower + random.randint(-10,5)
     if finalCurrentPower < 15:
         time.sleep(5)
-        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 15})
-        sheet.update_cell(23, 2, 15)
+        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : randomFinalCurrentPower})
+        sheet.update_cell(23, 2, randomFinalCurrentPower)
     else:
         time.sleep(5)
-        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})
-        sheet.update_cell(23, 2, finalCurrentPower)
+        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : randomFinalCurrentPower})
+        sheet.update_cell(23, 2, randomFinalCurrentPower)
 
 def pv_resetter_0():
     import gspread
