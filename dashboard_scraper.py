@@ -67,15 +67,30 @@ def get_current_pv_value_and_dweet():
     if finalCurrentPower < 15:
         time.sleep(5)
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 15})
+        sheet.update_cell(17,17, finalCurrentPower)
     else:
         time.sleep(5)
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})
+        sheet.update_cell(17,17, finalCurrentPower)
 
 def pv_resetter_0():
+    import gspread
+    from oauth2client.service_account import ServiceAccountCredentials
+    from pprint import pprint
+    scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
+
+    creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+
+    client = gspread.authorize(creds)
+
+    sheet = client.open("SOLAR JSON SCRIPT").sheet1  # Open the spreadhseet
+
+    data = sheet.get_all_records()  # Get a list of all records
     import dweepy
     import pytz
     import datetime
     now = datetime.datetime.now(pytz.timezone('Asia/Singapore'))
     if now.hour == 23:
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 0})
+        sheet.update_cell(17,17, 0)
 
