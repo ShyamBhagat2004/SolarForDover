@@ -28,6 +28,18 @@ def recieveSourceFunction():
 def rip_lines_and_dweet():
         import time
         try:
+            import gspread
+            from oauth2client.service_account import ServiceAccountCredentials
+            from pprint import pprint
+            scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
+
+            creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+
+            client = gspread.authorize(creds)
+
+            sheet = client.open("SOLAR JSON SCRIPT").sheet1  # Open the spreadhseet
+
+            data = sheet.get_all_records()  # Get a list of all records
             timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
             sourceCodeVariableRip = open(filename, 'r+')
             lines = sourceCodeVariableRip.readlines()
@@ -50,19 +62,27 @@ def rip_lines_and_dweet():
             print(f"{monthlyCarbonSaved} Carbon Saved this Month")
             print(f"{yearlyCarbonSaved} Carbon Saved This Year")
             dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
+            
+
             time.sleep(5)
             dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
+            sheet.update_cell(22, 2, currentDailyWatts)
             time.sleep(5)
             dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
+            sheet.update_cell(24, 2, currentDailyCarbonSaved)
             time.sleep(5)
 
             dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
+            sheet.update_cell(25, 2, monthlyWatts)
             time.sleep(5)
 
             dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
+            sheet.update_cell(26, 2, yearlyCarbonSaved)
             time.sleep(5)
 
             dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
+            sheet.update_cell(27, 2, monthlyCarbonSaved)
+            time.sleep(5)
 
             
 
