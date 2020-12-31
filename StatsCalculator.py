@@ -27,7 +27,7 @@ day_classroom = float((collection[4]['content']['currentDailyWatts']) / 4 / 8)
 day_ac = float((collection[4]['content']['currentDailyWatts']) / 3 / 8)
 day_laptopCharging = float((collection[4]['content']['currentDailyWatts']) / 0.085 / 8)
 day_carHours = float(((collection[4]['content']['currentDailyWatts']) / 0.15))
-
+"kilos_of_coal = yearlyKWH/2.83"
 """
 print(day_ac)
 print(day_classroom)

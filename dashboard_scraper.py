@@ -93,5 +93,5 @@ def pv_resetter_0():
     now = datetime.datetime.now(pytz.timezone('Asia/Singapore'))
     if now.hour == 23:
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 0})
-        sheet.update_cell(23,2, 0)
+        sheet.update_cell(23,2  , 0)
 
