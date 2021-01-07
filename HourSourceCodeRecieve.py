@@ -83,7 +83,7 @@ def rip_lines_and_dweet():
             dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
             sheet.update_cell(27, 2, monthlyCarbonSaved)
             time.sleep(5)
-            sheet.update_cell(28,2, monthlyCarbonSaved/42 * 100)
+            sheet.update_cell(28,2, yearlyCarbonSaved/42 * 100)
 
             
 
