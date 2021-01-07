@@ -61,26 +61,26 @@ def rip_lines_and_dweet():
 
             print(f"{monthlyCarbonSaved} Carbon Saved this Month")
             print(f"{yearlyCarbonSaved} Carbon Saved This Year")
-            dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
+            #dweepy.dweet_for('shyam__6', {'Last Good Update': str(timeformat)})
             
 
             time.sleep(5)
-            dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
+            #dweepy.dweet_for('shyam__5', {'currentDailyWatts': currentDailyWatts})
             sheet.update_cell(22, 2, currentDailyWatts)
             time.sleep(5)
-            dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
+            #dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
             sheet.update_cell(24, 2, currentDailyCarbonSaved)
             time.sleep(5)
 
-            dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
+            #dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
             sheet.update_cell(25, 2, monthlyWatts)
             time.sleep(5)
 
-            dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
+            #dweepy.dweet_for('shyam__5', {'yearlyCarbonSaved': yearlyCarbonSaved})
             sheet.update_cell(26, 2, yearlyCarbonSaved)
             time.sleep(5)
 
-            dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
+            #dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': monthlyCarbonSaved})
             sheet.update_cell(27, 2, monthlyCarbonSaved)
             time.sleep(5)
             sheet.update_cell(28,2, yearlyCarbonSaved/42 * 100)
@@ -109,9 +109,9 @@ def rip_lines_and_dweet():
             print("Value Error")
             print(datetime.datetime.now().time())
             timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
-            dweepy.dweet_for('shyam__5', {'currentDailyWatts': '0'})
+            #dweepy.dweet_for('shyam__5', {'currentDailyWatts': '0'})
             time.sleep(5)
-            dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': '0'})
+            #dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': '0'})
             time.sleep(5)
         except dweepy.api.DweepyError:
             print("dweep error")

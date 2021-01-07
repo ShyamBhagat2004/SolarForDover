@@ -67,11 +67,15 @@ def get_current_pv_value_and_dweet():
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})"""
     if finalCurrentPower < 15:
         time.sleep(5)
+        """
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 15})
+        """
         sheet.update_cell(23,2, 15)
     else:
         time.sleep(5)
+        """
         dweepy.dweet_for('shyam__7', {'finalCurrentPower' : finalCurrentPower})
+        """
         sheet.update_cell(23,2, finalCurrentPower)
 
 def pv_resetter_0():
@@ -92,6 +96,6 @@ def pv_resetter_0():
     import datetime
     now = datetime.datetime.now(pytz.timezone('Asia/Singapore'))
     if now.hour == 23:
-        dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 0})
+        """dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 0})"""
         sheet.update_cell(23,2  , 0)
 

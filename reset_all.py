@@ -17,6 +17,7 @@ count = 0
 
 
 def reset_all_readings():
+    """
     zero = 0
     timeformat = (datetime.datetime.now(pytz.timezone('Asia/Singapore')))
     timeformatformat = str(timeformat.strftime("%H"))
@@ -33,5 +34,7 @@ def reset_all_readings():
             dweepy.dweet_for('shyam__5', {'monthlyCarbonSaved': zero})
             time.sleep(90)
             resettoday = 1
+    """
+    
 
 
