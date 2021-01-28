@@ -101,3 +101,20 @@ def pv_resetter_0():
         sheet.update_cell(23,2  , 0)
 
 
+def co2_highschool():
+    import requests
+    import bs4
+    import pprint
+    highschool_co2_url = requests.get("https://bit.ly/highSchoolDoverSunny")
+    highschool_co2_parser = BeautifulSoup(highschool_co2_url.content, 'html.parser')
+    co2_value = highschool_co2_parser.find("span", attrs = {"id" : "ctl00_ContentPlaceHolder1_PublicPagePlaceholder1_PageUserControl_ctl00_PublicPageLoadFixPage_carbonWidget_carbonReductionValue"})
+    final_co2_int = int(co2_value.text)
+    print(final_co2_int)
+import requests
+import bs4
+import pprint
+highschool_co2_url = requests.get("https://bit.ly/highSchoolDoverSunny")
+highschool_co2_parser = BeautifulSoup(highschool_co2_url.content, 'html.parser')
+co2_value = highschool_co2_parser.find("span", attrs = {"id" : "ctl00_ContentPlaceHolder1_PublicPagePlaceholder1_PageUserControl_ctl00_PublicPageLoadFixPage_carbonWidget_carbonReductionValue"})
+final_co2_int = int(co2_value.text)
+

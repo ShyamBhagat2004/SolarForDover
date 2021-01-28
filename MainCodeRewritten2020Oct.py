@@ -17,9 +17,10 @@ docker guide = https://docs.google.com/document/d/1R9swZekHIR2PnytGjqD7clZdm3pO2
 try:
 
     while count != 1:
+        #dashboard_scraper.co2_highschool()
         HourSourceCodeRecieve.recieveSourceFunction()
         HourSourceCodeRecieve.rip_lines_and_dweet()
-        #dashboard_scraper.get_current_pv_value()
+        dashboard_scraper.get_current_pv_value()
         dashboard_scraper.get_current_pv_value_and_dweet()
         dashboard_scraper.pv_resetter_0()
 
