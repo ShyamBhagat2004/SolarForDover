@@ -95,10 +95,13 @@ def pv_resetter_0():
     import dweepy
     import pytz
     import datetime
+    from datetime import time
     now = datetime.datetime.now(pytz.timezone('Asia/Singapore'))
     if now.hour == 23:
         """dweepy.dweet_for('shyam__7', {'finalCurrentPower' : 0})"""
         sheet.update_cell(23,2  , 0)
+        time.sleep(2)
+        sheet.update_cell(24,2,0)
 
 
 def co2_highschool():
