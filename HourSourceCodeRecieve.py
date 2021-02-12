@@ -4,6 +4,7 @@ import dweepy
 import datetime
 import pytz
 import time
+from dashboard_scraper import final_co2_int
 
 filename = 'currentHourFileAlpha.txt'
 def recieveSourceFunction():
@@ -11,7 +12,7 @@ def recieveSourceFunction():
 
     import requests
 
-    res = requests.get('https://www.sunnyportal.com/Templates/PublicPage.aspx?page=fa4629bd-711e-4baf-b6cb-bfb39a09a0ce')
+    res = requests.get('https://www.sunnyportal.com/Templates/PublicPage.aspx?page=c4532d4d-ea28-47c4-8ea5-7e4fd89e76d2')
     html_source = res.text
     # this line trows an exception if an error on the 
                             # connection to the page occurs. 
@@ -27,8 +28,12 @@ def recieveSourceFunction():
     currentHourWrite.write(beautifulSourceCode)
 def rip_lines_and_dweet():
         import time
+        import bs4
+        from bs4 import BeautifulSoup
         try:
             import gspread
+            import bs4
+            import requests
             from oauth2client.service_account import ServiceAccountCredentials
             from pprint import pprint
             scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
@@ -44,13 +49,18 @@ def rip_lines_and_dweet():
             sourceCodeVariableRip = open(filename, 'r+')
             lines = sourceCodeVariableRip.readlines()
 
-            currentDailyWatts = (lines[274].strip().rstrip())
+            currentDailyWatts = (lines[1903].strip().rstrip())
             print(f"{currentDailyWatts} The Watts Gotten Today ie Daily")
-            currentDailyCarbonSaved = lines[1716].strip().rstrip()
+            currentDailyCarbonSaved = lines[1729].strip().rstrip()
+            floatCarbonDaily = (currentDailyCarbonSaved)
+            #print(final_co2_int)
+            #currentDailyCarbonSaved = (currentDailyCarbonSaved) + final_co2_int
+            
+
             print(f"{currentDailyCarbonSaved} The Carbon Saved Today ie Daily")
-            monthlyWatts = lines[279].strip().rstrip()
+            monthlyWatts = lines[1908].strip().rstrip()
             print(f"{monthlyWatts} The Watts Gotten this Month ie Monthly")
-            yearlyWatts = lines[284].strip().rstrip()
+            yearlyWatts = lines[1913].strip().rstrip()
             print(f"{yearlyWatts} The Watts gotten this Year ie Yearly")
 
             intmonwatts = int(float(monthlyWatts))
@@ -69,7 +79,14 @@ def rip_lines_and_dweet():
             sheet.update_cell(22, 2, currentDailyWatts)
             time.sleep(5)
             #dweepy.dweet_for('shyam__5', {'currentDailyCarbonSaved': currentDailyCarbonSaved})
-            sheet.update_cell(24, 2, currentDailyCarbonSaved)
+            
+            highschool_co2_url = requests.get("https://bit.ly/highSchoolDoverSunny")
+            highschool_co2_parser = BeautifulSoup(highschool_co2_url.content, 'html.parser')
+            co2_value = highschool_co2_parser.find("span", attrs = {"id" : "ctl00_ContentPlaceHolder1_PublicPagePlaceholder1_PageUserControl_ctl00_PublicPageLoadFixPage_carbonWidget_carbonReductionValue"})
+            final_co2_int = int(co2_value.text)
+            #currentDailyWithHighschool = int(currentDailyCarbonSaved) + int(final_co2_int)
+            sheet.update_cell(24, 2, floatCarbonDaily)
+            
             time.sleep(5)
 
             #dweepy.dweet_for('shyam__5', {'monthlyWatts': monthlyWatts})
