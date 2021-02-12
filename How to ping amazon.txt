@@ -5,7 +5,7 @@ cd ./.ssh/SolarForDover1
 sudo ssh -i shyam.pem ubuntu@ec2-54-169-247-110.ap-southeast-1.compute.amazonaws.com
 
 
-cd ./.ssh/SolarForDover1 && sudo ssh -i shyam.pem ubuntu@ec2-54-169-247-110.ap-southeast-1.compute.amazonaws.com
+cd ./.ssh/SolarForDover1 && sudo ssh -i shyam.pem ubuntu@ec2-13-250-119-157.ap-southeast-1.compute.amazonaws.com |
 
 
 
