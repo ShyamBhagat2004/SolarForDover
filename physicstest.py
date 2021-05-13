@@ -23,7 +23,7 @@ sheet = client.open("topic2").sheet1  # Open the spreadhseet
 
 data = sheet.get_all_records()  # Get a list of all records
 
-coord = 1
+coord = 0
 guessed = sheet.acell('A2').value
 print(guessed)
 

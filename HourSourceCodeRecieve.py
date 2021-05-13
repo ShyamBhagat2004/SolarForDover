@@ -49,7 +49,7 @@ def rip_lines_and_dweet():
             sourceCodeVariableRip = open(filename, 'r+')
             lines = sourceCodeVariableRip.readlines()
 
-            currentDailyWatts = (lines[1903].strip().rstrip())
+            currentDailyWatts = (lines[1911].strip().rstrip())
             print(f"{currentDailyWatts} The Watts Gotten Today ie Daily")
             currentDailyCarbonSaved = lines[1729].strip().rstrip()
             floatCarbonDaily = (currentDailyCarbonSaved)
@@ -58,9 +58,9 @@ def rip_lines_and_dweet():
             
 
             print(f"{currentDailyCarbonSaved} The Carbon Saved Today ie Daily")
-            monthlyWatts = lines[1908].strip().rstrip()
+            monthlyWatts = lines[1738].strip().rstrip()
             print(f"{monthlyWatts} The Watts Gotten this Month ie Monthly")
-            yearlyWatts = lines[1913].strip().rstrip()
+            yearlyWatts = lines[1921].strip().rstrip()
             print(f"{yearlyWatts} The Watts gotten this Year ie Yearly")
 
             intmonwatts = int(float(monthlyWatts))
