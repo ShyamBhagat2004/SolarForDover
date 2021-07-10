@@ -23,7 +23,6 @@ try:
         dashboard_scraper.get_current_pv_value()
         dashboard_scraper.get_current_pv_value_and_dweet()
         dashboard_scraper.pv_resetter_0()
-
         time.sleep(300)
 except:
     pass
